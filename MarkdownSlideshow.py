@@ -31,6 +31,9 @@ class MarkdownSlideshowCommand(sublime_plugin.TextCommand):
             opts['themes'] = os.path.join(pkg_path, 'themes')
 
         # path of the output file
+        if output_file == '.':
+            output_file = self.view.file_name() + ".html"
+
         if output_file is None:
             output_path = None
         else:
